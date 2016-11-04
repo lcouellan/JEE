@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <project name="TP Fil Rouge" default="dist">
 
-<property name="autodeploydir" value="../domain/autodeploy" />
+<property name="autodeploydir" value="../../domain/autodeploy" />
 
 <target name="dist" depends="init">
   <copy todir="build/">
