@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://java.sun.com/xml/ns/javaee"
+  xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
+  id="WebApp_ID"
+  version="3.0">
+
+<welcome-file-list>
+  <welcome-file>toc.jsp</welcome-file>
+</welcome-file-list>
+
+<error-page>
+  <error-code>404</error-code>
+  <location>/pages/errorPage.jsp</location>
+</error-page>
+
+<servlet>
+  <servlet-name>Funny</servlet-name>
+  <jsp-file>/pages/funnyProduct.jsp</jsp-file>
+</servlet>
+<servlet>
+  <servlet-name>Prices</servlet-name>
+  <jsp-file>/pages/prices.jsp</jsp-file>
+</servlet>
+<servlet>
+  <servlet-name>AllProducts</servlet-name>
+  <jsp-file>/pages/allProducts.jsp</jsp-file>
+</servlet>
+
+<servlet-mapping>
+  <servlet-name>Funny</servlet-name>
+  <url-pattern>/funny</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+  <servlet-name>Prices</servlet-name>
+  <url-pattern>/prices</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+  <servlet-name>AllProducts</servlet-name>
+  <url-pattern>/all</url-pattern>
+</servlet-mapping>
+
+</web-app> 

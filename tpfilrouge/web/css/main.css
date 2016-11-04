@@ -1,0 +1,11 @@
+body { 
+  color: blue;
+}
+
+table, th, td {
+  border: solid 1px;
+}
+
+th, td {
+  padding: 5px;
+}

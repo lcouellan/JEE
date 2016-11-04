@@ -1,0 +1,6 @@
+/domain/*
+.metadata/*
+.recommenders/*
+/logementslib/.classpath
+/logementslib/.gitignore
+/logementslib/.project
