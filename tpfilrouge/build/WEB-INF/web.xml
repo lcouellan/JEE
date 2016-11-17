@@ -21,10 +21,18 @@
   <servlet-name>CreationCompte</servlet-name>
   <jsp-file>/pages/creationCompte.jsp</jsp-file>
 </servlet>
+<servlet>
+  <servlet-name>ListeLogements</servlet-name>
+  <jsp-file>/pages/listeLogements.jsp</jsp-file>
+</servlet>
 
 <servlet-mapping>
   <servlet-name>CreationCompte</servlet-name>
   <url-pattern>/creation-compte</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+  <servlet-name>ListeLogements</servlet-name>
+  <url-pattern>/liste-logements</url-pattern>
 </servlet-mapping>
 
 </web-app> 

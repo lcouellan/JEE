@@ -1,10 +1,7 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
 <%@page import="logements.Logement" %>
 <%@page import="logements.Appartement" %>
-<%@page import="logements.LogementDBStub" %>
 
 <%
-  LogementDBStub db = new LogementDBStub ();
   Appartement test = new Appartement(200.0 , 8 , " 7 Allée du Raphapha 14000 Caen");
 %>
 <jsp:include page="fragments/header.jsp" />
