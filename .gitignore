@@ -6,3 +6,5 @@
 /logementslib/.project
 /tpfilrouge/build.xml
 /tpfilrouge/dist/tpfilrouge.war
+.classpath
+.project
