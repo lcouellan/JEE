@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://java.sun.com/xml/ns/javaee"
+  xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+  id="WebApp_ID"
+  version="2.5">
+
+<welcome-file-list>
+  <welcome-file>toc.jsp</welcome-file>
+</welcome-file-list>
+
+<servlet>
+  <servlet-name>AllProducts</servlet-name>
+  <jsp-file>/pages/allProducts.jsp</jsp-file>
+</servlet>
+
+<servlet-mapping>
+  <servlet-name>AllProducts</servlet-name>
+  <url-pattern>/all</url-pattern>
+</servlet-mapping>
+
+<servlet>
+  <servlet-name>AddProduct</servlet-name>
+  <jsp-file>/pages/addProduct.jsp</jsp-file>
+</servlet>
+
+<servlet-mapping>
+  <servlet-name>AddProduct</servlet-name>
+  <url-pattern>/addProduct</url-pattern>
+</servlet-mapping>
+
+<servlet>
+  <servlet-name>Add</servlet-name>
+  <servlet-class>jdbcproducts.AddProductServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+  <servlet-name>Add</servlet-name>
+  <url-pattern>/add</url-pattern>
+</servlet-mapping>
+
+<env-entry>
+  <env-entry-name>host</env-entry-name>
+  <env-entry-type>java.lang.String</env-entry-type>
+  <env-entry-value>HOSTNAME</env-entry-value>
+</env-entry>
+
+<env-entry>
+  <env-entry-name>database</env-entry-name>
+  <env-entry-type>java.lang.String</env-entry-type>
+  <env-entry-value>DATABASE</env-entry-value>
+</env-entry>
+
+<env-entry>
+  <env-entry-name>username</env-entry-name>
+  <env-entry-type>java.lang.String</env-entry-type>
+  <env-entry-value>USERNAME</env-entry-value>
+</env-entry>
+
+<env-entry>
+  <env-entry-name>password</env-entry-name>
+  <env-entry-type>java.lang.String</env-entry-type>
+  <env-entry-value>PASSWORD</env-entry-value>
+</env-entry>
+
+<env-entry>
+  <env-entry-name>table</env-entry-name>
+  <env-entry-type>java.lang.String</env-entry-type>
+  <env-entry-value>products</env-entry-value>
+</env-entry>
+
+</web-app> 
