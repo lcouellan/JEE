@@ -10,10 +10,10 @@ public class LogementDBStub implements ILogementDB {
     protected List<Logement> logements;
 
     /** A list of surfaces, in the same order as associated persons in {@link #logement}. */
-    protected List<int> surfaces;
+    protected List<Integer> surfaces;
 
     /** A list of nombrePieces, in the same order as associated persons in {@link #persons}. */
-    protected List<int> nombrePieces;
+    protected List<Integer> nombrePieces;
 
     /**
      * Builds a new, empty list of logements.
@@ -47,7 +47,7 @@ public class LogementDBStub implements ILogementDB {
     @Override
     public Logement retrieve (String adresse) throws IndexOutOfBoundsException {
         for (Logement l: this.logements) {
-            if (l.getEmail().equals(adresse)) {
+            if (l.getAdresse().equals(adresse)) {
                 return l;
             }
         }
@@ -65,8 +65,9 @@ public class LogementDBStub implements ILogementDB {
         if (i==this.logements.size()) {
             return false;
         }
-        if (this.surfaces.get(i).equals(surface) != i) {
+        if (this.surfaces.get(i).equals(surface)) {
             return false;
+        }
         return this.nombrePieces.get(i).equals(nbPieces);
     }
 

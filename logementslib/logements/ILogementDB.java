@@ -1,4 +1,4 @@
-package services;
+package logements;
 
 import java.util.Collection;
 
@@ -10,7 +10,7 @@ public interface ILogementDB {
 
     public Collection<String> retrieveAllAdresses () throws Exception;
 
-    public Service retrieve (String adresse) throws Exception;
+    public Logement retrieve (String adresse) throws Exception;
 
     public boolean isValid (int surface, int nbPieces, String adresse) throws Exception;
 

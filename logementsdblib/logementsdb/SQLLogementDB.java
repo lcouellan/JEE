@@ -1,12 +1,16 @@
 package logementsdb;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import logements.Appartement;
+import logements.Maison;
 import logements.Logement;
 import logements.ILogementDB;
 
@@ -40,12 +44,10 @@ public class SQLLogementDB implements ILogementDB {
         this.retrieveLogementStatement=this.link.prepareStatement(query);
     }
 
-    @Override
     public void addLogement (Logement logement) throws SQLException {
         this.create(logement);
     }
 
-    @Override
     public List<Logement> getAll () throws SQLException {
         return this.retrieveAll();
     }
@@ -98,7 +100,12 @@ public class SQLLogementDB implements ILogementDB {
         rs=statement.executeQuery(query);
         List<Logement> res=new ArrayList<Logement>();
         while (rs.next()) {
-            res.add(new Logement(rs.getDouble("surface"),rs.getInt("nbPieces"),rs.getString("adresse")));
+        	if (rs.getDouble("surfaceExterieur") != 0) {
+        		res.add(new Maison(rs.getDouble("surface"),rs.getInt("nbPieces"),rs.getString("adresse"),rs.getDouble("surfaceExterieur")));
+        	}
+        	else {
+        		res.add(new Appartement(rs.getDouble("surface"),rs.getInt("nbPieces"),rs.getString("adresse")));
+        	}
         }
         return res;
     }
@@ -110,12 +117,17 @@ public class SQLLogementDB implements ILogementDB {
      * @throws SQLException if a database access error occurs
      */
     public Logement retrieve (String adresse) throws SQLException {
-        this.retrieveLogementStatement.setString(3,adresse);
+        this.retrieveLogementStatement.setString(1,adresse);
         ResultSet rs=this.retrieveLogementStatement.executeQuery();
         if (!rs.next()) {
             return null;
         }
-        return new Logement(rs.getDouble("surface"),rs.getInt("nbPieces"),rs.getString("adresse"));
+//        if (rs.getDouble("surfaceExterieur") != 0) {
+//   		 return new Maison(rs.getDouble("surface"),rs.getInt("nbPieces"),rs.getString("adresse"),rs.getDouble("surfaceExterieur"));
+//        }
+//        else {
+        	return new Appartement(rs.getDouble("surface"),rs.getInt("nbPieces"),rs.getString("adresse"));
+        //}
     }
 
     /**
@@ -138,5 +150,34 @@ public class SQLLogementDB implements ILogementDB {
         Statement statement=this.link.createStatement();
         statement.execute(query);
     }
+
+	@Override
+	public void delete(String arg0) throws Exception {
+		// TODO Auto-generated method stub	
+	}
+
+	@Override
+	public boolean exists(String arg0) throws Exception {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isValid(int arg0, int arg1, String arg2) throws Exception {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Collection<String> retrieveAllAdresses() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update(String arg0, Logement arg1) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
