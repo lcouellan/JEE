@@ -10,7 +10,7 @@
 
 <h1>Creation de compte</h1>
 
-<form method="post" action="success">
+<form class="form-signin" method="post" action="success">
    	<p><label>Votre prenom : </label><input type="text" name="prenom" /></p>
    	<p><label>Votre nom : </label><input type="text" name="nom" /></p>
    	<p><label>Votre email : </label><input type="text" name="email" /></p>
