@@ -1,6 +1,6 @@
 package jdbclogements;
 
-import productsdb.SQLProductDB;
+import logementsdb.SQLLogementDB;
 import java.sql.Connection;
 import java.sql.SQLException;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
@@ -13,14 +13,14 @@ public class LogementsDBHandler {
     private static Connection link;
 
     /** The unique instance of class SQLProductsDB (null if none). */
-    private static SQLProductDB db;
+    private static SQLLogementDB db;
 
     /**
      * Returns the instance of SQLProductDB.
      * @throws NamingException if strings host, database, username, password, or table cannot be found
      * @throws SQLException if any problem occurs for accessing the database
      */
-    public static SQLProductDB getDb () throws NamingException, SQLException {
+    public static SQLLogementDB getDb () throws NamingException, SQLException {
         if (LogementsDBHandler.db==null) {
             LogementsDBHandler.initialize();
         }

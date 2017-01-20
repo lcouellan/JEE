@@ -3,6 +3,12 @@
 
 <property name="autodeploydir" value="../../domain/autodeploy" />
 
+<path id="jee">
+  <fileset dir="/usr/local/glassfish-4.1/glassfish/modules/">
+    <include name="*.jar"/>
+  </fileset>
+</path>
+
 <path id="external">
   <fileset dir="lib/">
     <include name="*.jar"/>
@@ -11,6 +17,7 @@
 
 <target name="compile" depends="init">
   <javac srcdir="." destdir="build/WEB-INF/classes" includeantruntime="false">
+    <classpath refid="jee" />
     <classpath refid="external" />
   </javac>
 </target>

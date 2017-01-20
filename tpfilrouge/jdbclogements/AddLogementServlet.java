@@ -1,5 +1,7 @@
 package jdbclogements;
 
+import logements.Logement;
+import logements.Appartement;
 import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.ServletException;
@@ -16,20 +18,20 @@ public class AddLogementServlet extends HttpServlet {
 
         // Retrieve the logement entered
         String adresse=request.getParameter("adresse");
-        double surface=null;
-        double nbPieces=null;
+        double surface=0.0;
+        Integer nbPieces=0;
         try {
             surface=new Double(request.getParameter("surface"));
-            nbPieces=new Double(request.getParameter("nbPieces"));
+            nbPieces=new Integer(request.getParameter("nbPieces"));
         } catch (Exception e) {
             this.terminate(request,response,"Impossible de voir les caractéristiques du logement ("+e+"), merci de resaisir ce dernier.");
             return;
         }
 
-        // Insert logement into DB
-        Logement logement=new Logement(adresse,surface,nbPieces);
+        // Insert Appartement into DB
+        Logement logement=new Appartement(surface,nbPieces,adresse);
         try {
-            LogementsDBHandler.getDb().create(product);
+            LogementsDBHandler.getDb().create(logement);
         } catch (Exception e) {
             this.terminate(request,response,"Erreur d'insertion dans la base ("+e+").");
             return;

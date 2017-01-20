@@ -6,7 +6,7 @@
   Product funny=db.getFunnyProduct();
 %>--%>
 
-<jsp:include page="fragments/header.jsp" />
+<jsp:include page="../fragments/header.jsp" />
 
 <h1>Creation de logement</h1>
 
@@ -33,4 +33,4 @@
 	<p><input type="submit" value="Valider" /></p>
 </form>
 
-<jsp:include page="fragments/footer.html" />
+<jsp:include page="../fragments/footer.html" />
