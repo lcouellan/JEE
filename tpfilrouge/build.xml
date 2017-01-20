@@ -1,9 +1,27 @@
 <?xml version="1.0" ?>
 <project name="TP Fil Rouge" default="dist">
 
-<property name="autodeploydir" value="../domain/autodeploy" />
+<property name="autodeploydir" value="../../domain/autodeploy" />
 
-<target name="dist" depends="init">
+<path id="jee">
+  <fileset dir="/usr/local/glassfish-4.1/glassfish/modules/">
+    <include name="*.jar"/>
+  </fileset>
+</path>
+
+<path id="external">
+  <fileset dir="lib/">
+    <include name="*.jar"/>
+  </fileset>
+</path>
+
+<target name="compile" depends="init">
+  <javac srcdir="." destdir="build/WEB-INF/classes" includeantruntime="false">
+    <classpath refid="external" />
+  </javac>
+</target>
+
+<target name="dist" depends="init, compile">
   <copy todir="build/">
     <fileset dir="web" includes="**/*" />
   </copy>
@@ -21,6 +39,7 @@
   <mkdir dir="build" />
   <mkdir dir="build/WEB-INF" />
   <mkdir dir="build/WEB-INF/lib" />
+  <mkdir dir="build/WEB-INF/classes" />
   <mkdir dir="dist" />
 </target>
 
