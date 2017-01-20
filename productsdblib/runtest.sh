@@ -1,1 +1,0 @@
-ant test -Dhost="HOSTNAME" -Ddatabase="DATABASE" -Dusername="USERNAME" -Dpassword="PASSWORD"
