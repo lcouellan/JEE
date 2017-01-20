@@ -3,12 +3,6 @@
 
 <property name="autodeploydir" value="../../domain/autodeploy" />
 
-<path id="jee">
-  <fileset dir="/usr/local/glassfish-4.1/glassfish/modules/">
-    <include name="*.jar"/>
-  </fileset>
-</path>
-
 <path id="external">
   <fileset dir="lib/">
     <include name="*.jar"/>
