@@ -25,14 +25,23 @@
   <servlet-name>ListeLogements</servlet-name>
   <jsp-file>/pages/listeLogements.jsp</jsp-file>
 </servlet>
+<servlet>
+  <servlet-name>CreationLogement</servlet-name>
+  <jsp-file>/pages/creationLogement.jsp</jsp-file>
+</servlet>
+
 
 <servlet-mapping>
   <servlet-name>CreationCompte</servlet-name>
-  <url-pattern>/creation-compte</url-pattern>
+  <url-pattern>/compte/creer</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+  <servlet-name>CreationLogement</servlet-name>
+  <url-pattern>/logement/creer</url-pattern>
 </servlet-mapping>
 <servlet-mapping>
   <servlet-name>ListeLogements</servlet-name>
-  <url-pattern>/liste-logements</url-pattern>
+  <url-pattern>/logements</url-pattern>
 </servlet-mapping>
 
 </web-app> 
