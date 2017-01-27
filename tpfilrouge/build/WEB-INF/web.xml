@@ -5,7 +5,7 @@
   xmlns="http://java.sun.com/xml/ns/javaee"
   xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
-  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
+  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
   id="WebApp_ID"
   version="3.0">
 
@@ -33,12 +33,20 @@
   <jsp-file>/pages/listeLogements.jsp</jsp-file>
 </servlet>
 <servlet>
-  <servlet-name>CreationLogement</servlet-name>
-  <jsp-file>/pages/creationLogement.jsp</jsp-file>
+  <servlet-name>creationAppartement</servlet-name>
+  <jsp-file>/pages/creationAppartement.jsp</jsp-file>
 </servlet>
 <servlet>
-  <servlet-name>ajouter</servlet-name>
-  <servlet-class>jdbclogements.AddLogementServlet</servlet-class>
+  <servlet-name>creationMaison</servlet-name>
+  <jsp-file>/pages/creationMaison.jsp</jsp-file>
+</servlet>
+<servlet>
+  <servlet-name>ajouterAppartement</servlet-name>
+  <servlet-class>jdbclogements.AddAppartementServlet</servlet-class>
+</servlet>
+<servlet>
+  <servlet-name>ajouterMaison</servlet-name>
+  <servlet-class>jdbclogements.AddMaisonServlet</servlet-class>
 </servlet>
 
 <servlet-mapping>
@@ -46,16 +54,24 @@
   <url-pattern>/compte/creer</url-pattern>
 </servlet-mapping>
 <servlet-mapping>
-  <servlet-name>CreationLogement</servlet-name>
-  <url-pattern>/logement/creer</url-pattern>
+  <servlet-name>creationAppartement</servlet-name>
+  <url-pattern>/appartement/creer</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+  <servlet-name>creationMaison</servlet-name>
+  <url-pattern>/maison/creer</url-pattern>
 </servlet-mapping>
 <servlet-mapping>
   <servlet-name>ListeLogements</servlet-name>
   <url-pattern>/logements</url-pattern>
 </servlet-mapping>
 <servlet-mapping>
-  <servlet-name>ajouter</servlet-name>
-  <url-pattern>/logement/ajouter</url-pattern>
+  <servlet-name>ajouterAppartement</servlet-name>
+  <url-pattern>/appartement/ajouter</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+  <servlet-name>ajouterMaison</servlet-name>
+  <url-pattern>/maison/ajouter</url-pattern>
 </servlet-mapping>
 
 
@@ -91,4 +107,4 @@
   <env-entry-value>logements</env-entry-value>
 </env-entry>
 
-</web-app> 
+</web-app>

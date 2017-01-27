@@ -7,12 +7,9 @@
 <h1>Tous nos logements</h1>
 <ul>
 
-  <c:set var="withSurface" value="${!empty param['action'] && param['action']=='surface'}" />
-
   <c:forEach var="logement" items="<%= LogementsDBHandler.getDb().retrieveAll() %>">
     <li>
       ${logement}
-      <c:if test="${withSurface}">[surface&nbsp;: ${logement.surface}]</c:if>
     </li>
   </c:forEach>
 </ul>

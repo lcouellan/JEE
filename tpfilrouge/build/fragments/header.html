@@ -33,7 +33,8 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="/tpfilrouge/compte/creer">Créer un compte</a></li>
             <li><a href="/tpfilrouge/logements">Liste logements</a></li>
-            <li><a href="/tpfilrouge/logement/creer">Création logement</a></li>
+            <li><a href="/tpfilrouge/appartement/creer">Création appartement</a></li>
+            <li><a href="/tpfilrouge/maison/creer">Création maison</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

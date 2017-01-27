@@ -2,7 +2,7 @@
 <project name="Logements Library" default="dist">
 
 <target name="compile" depends="init">				
-  <javac srcdir="." destdir="build" includeantruntime="false">
+  <javac srcdir="." destdir="build" includeantruntime="false" encoding="UTF-8">
     <include name="logements/**/*.java" />
   </javac>
 </target>

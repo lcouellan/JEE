@@ -8,17 +8,8 @@
 
 <jsp:include page="../fragments/header.html" />
 
-<h1>Creation de logement</h1>
-<form class=".form-horizontal" method="post" action="add">
-	<div class="form-group">
-		<label class=".control-label col-sm-2">Type : </label>
-    <div class"col-sm-10">
-  		<select name="logement">
-  			<option value="appartement">Appartement</option>
-  			<option value="maison">Maison</option>
-  		</select>
-    </div>
-	</div>
+<h1>Creation d'un appartement</h1>
+<form class=".form-horizontal" method="post" action="ajouter">
    	<div class="form-group">
    		<label class=".control-label col-sm-2">Adresse : </label>
       <div class"col-sm-10">

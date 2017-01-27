@@ -1,15 +1,18 @@
 package logements;
 
 public class Maison extends Logement{
-	public double surfaceExterieur;
-	
-	public Maison(double surface, int nbPieces, String adresse, double surfaceExterieur) {
+	public double surfaceExterieure;
+
+	public Maison(double surface, int nbPieces, String adresse, double surfaceExterieure) {
 		super(surface, nbPieces, adresse);
-		this.surfaceExterieur = surfaceExterieur;
-		// TODO Auto-generated constructor stub
+		this.surfaceExterieure = surfaceExterieure;
 	}
-	
+
 	public String toString() {
-		return "Maison de " + this.surface + " m² avec " + this.surfaceExterieur +" m² de surface extérieur et de " + nbPieces +" pièces à l'adresse suivante : "+adresse; 
+		return "Maison de " + this.surface + " mÂ² avec " + this.surfaceExterieure +" mÂ² de surface extÃ©rieur et de " + nbPieces +" piÃ¨ces Ã  l'adresse suivante : "+adresse; 
+	}
+
+	public double getSurfaceExterieure() {
+		return this.surfaceExterieure;
 	}
 }

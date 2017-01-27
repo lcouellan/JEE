@@ -35,10 +35,11 @@ public class SQLLogementDB implements ILogementDB {
      * @throws SQLException if a database access error occurs
      */
     public SQLLogementDB (Connection link, String table) throws SQLException {
+
         this.link=link;
         this.table=table;
         String query=null;
-        query="INSERT INTO `"+this.table+"` VALUES(?,?,?)";
+        query="INSERT INTO `"+this.table+"` VALUES(?,?,?,?)";
         this.createLogementStatement=this.link.prepareStatement(query);
         query="SELECT * FROM `"+this.table+"` WHERE adresse=?";
         this.retrieveLogementStatement=this.link.prepareStatement(query);
@@ -70,7 +71,7 @@ public class SQLLogementDB implements ILogementDB {
         query+="`surface` DOUBLE NOT NULL, ";
         query+="`nbPieces` INT NOT NULL, ";
         query+="`adresse` VARCHAR(255) NOT NULL, ";
-	query+="`surfaceExterieur` DOUBLE NOT NULL, ";
+	      query+="`surfaceExterieure` DOUBLE NOT NULL, ";
         query+="PRIMARY KEY (`adresse`) ";
         query+=")";
         Statement statement=this.link.createStatement();
@@ -79,14 +80,22 @@ public class SQLLogementDB implements ILogementDB {
 
     /**
      * Stores a new logement in the database.
-     * @param logement The logement 
+     * @param logement The logement
      * @throws SQLException if a database access error occurs
      */
     public void create (Logement logement) throws SQLException {
-	this.createTables();
+	      this.createTables();
         this.createLogementStatement.setDouble(1,logement.getSurface());
         this.createLogementStatement.setInt(2,logement.getNbPieces());
         this.createLogementStatement.setString(3,logement.getAdresse());
+
+        if(logement instanceof Maison) {
+          Maison maison = (Maison)logement;
+          this.createLogementStatement.setDouble(4,maison.getSurfaceExterieure());
+        } else {
+          this.createLogementStatement.setDouble(4,-1);
+        }
+
         this.createLogementStatement.execute();
     }
 
@@ -96,14 +105,15 @@ public class SQLLogementDB implements ILogementDB {
      * @throws SQLException if a database access error occurs
      */
     public List<Logement> retrieveAll () throws SQLException {
+        this.createTables();
         String query="SELECT * FROM `"+this.table+"`";
         ResultSet rs=null;
         Statement statement=this.link.createStatement();
         rs=statement.executeQuery(query);
         List<Logement> res=new ArrayList<Logement>();
         while (rs.next()) {
-        	if (rs.getDouble("surfaceExterieur") != 0) {
-        		res.add(new Maison(rs.getDouble("surface"),rs.getInt("nbPieces"),rs.getString("adresse"),rs.getDouble("surfaceExterieur")));
+        	if (rs.getDouble("surfaceExterieure") != -1) {
+        		res.add(new Maison(rs.getDouble("surface"),rs.getInt("nbPieces"),rs.getString("adresse"),rs.getDouble("surfaceExterieure")));
         	}
         	else {
         		res.add(new Appartement(rs.getDouble("surface"),rs.getInt("nbPieces"),rs.getString("adresse")));
@@ -119,17 +129,17 @@ public class SQLLogementDB implements ILogementDB {
      * @throws SQLException if a database access error occurs
      */
     public Logement retrieve (String adresse) throws SQLException {
+        this.createTables();
         this.retrieveLogementStatement.setString(1,adresse);
         ResultSet rs=this.retrieveLogementStatement.executeQuery();
         if (!rs.next()) {
             return null;
         }
-//        if (rs.getDouble("surfaceExterieur") != 0) {
-//   		 return new Maison(rs.getDouble("surface"),rs.getInt("nbPieces"),rs.getString("adresse"),rs.getDouble("surfaceExterieur"));
-//        }
-//        else {
+        if (rs.getDouble("surfaceExterieure") != -1) {
+   		     return new Maison(rs.getDouble("surface"),rs.getInt("nbPieces"),rs.getString("adresse"),rs.getDouble("surfaceExterieure"));
+        } else {
         	return new Appartement(rs.getDouble("surface"),rs.getInt("nbPieces"),rs.getString("adresse"));
-        //}
+        }
     }
 
     /**
@@ -147,7 +157,7 @@ public class SQLLogementDB implements ILogementDB {
      * @param logement The logement
      * @throws SQLException if a database access error occurs
      */
-    public void delete (Logement logement) throws SQLException {  
+    public void delete (Logement logement) throws SQLException {
         String query="DELETE FROM `"+this.table+"` WHERE adresse=\""+logement.getAdresse()+"\"";
         Statement statement=this.link.createStatement();
         statement.execute(query);
@@ -155,7 +165,7 @@ public class SQLLogementDB implements ILogementDB {
 
 	@Override
 	public void delete(String arg0) throws Exception {
-		// TODO Auto-generated method stub	
+		// TODO Auto-generated method stub
 	}
 
 	@Override
@@ -179,7 +189,7 @@ public class SQLLogementDB implements ILogementDB {
 	@Override
 	public void update(String arg0, Logement arg1) throws Exception {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
