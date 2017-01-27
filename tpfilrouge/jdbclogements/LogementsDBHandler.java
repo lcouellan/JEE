@@ -52,7 +52,7 @@ public class LogementsDBHandler {
         String username=initialContext.doLookup("java:comp/env/username");
         String password=initialContext.doLookup("java:comp/env/password");
         String table=initialContext.doLookup("java:comp/env/table");
-        LogementsDBHandler.db=new SQLLogementDB(LogementsDBHandler.getLink(host,database,username,""),table);
+        LogementsDBHandler.db=new SQLLogementDB(LogementsDBHandler.getLink(host,database,username,password),table);
     }
 
     /**

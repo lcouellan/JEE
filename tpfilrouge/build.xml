@@ -4,7 +4,7 @@
 <property name="autodeploydir" value="../../domain/autodeploy" />
 
 <path id="jee">
-  <fileset dir="C:\Program Files\glassfish4\glassfish\modules">
+  <fileset dir="/usr/local/glassfish-4.1/glassfish/modules/">
     <include name="*.jar"/>
   </fileset>
 </path>

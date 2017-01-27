@@ -13,10 +13,6 @@
   <welcome-file>toc.jsp</welcome-file>
 </welcome-file-list>
 
-<error-page>
-  <error-code>404</error-code>
-  <location>/pages/errorPage.jsp</location>
-</error-page>
 <servlet>
   <servlet-name>CreationCompte</servlet-name>
   <jsp-file>/pages/creationCompte.jsp</jsp-file>
@@ -29,7 +25,10 @@
   <servlet-name>CreationLogement</servlet-name>
   <jsp-file>/pages/creationLogement.jsp</jsp-file>
 </servlet>
-
+<servlet>
+  <servlet-name>ajouter</servlet-name>
+  <servlet-class>jdbclogements.AddLogementServlet</servlet-class>
+</servlet>
 
 <servlet-mapping>
   <servlet-name>CreationCompte</servlet-name>
@@ -43,30 +42,35 @@
   <servlet-name>ListeLogements</servlet-name>
   <url-pattern>/logements</url-pattern>
 </servlet-mapping>
+<servlet-mapping>
+  <servlet-name>ajouter</servlet-name>
+  <url-pattern>/logement/ajouter</url-pattern>
+</servlet-mapping>
+
 
 
 <env-entry>
   <env-entry-name>host</env-entry-name>
   <env-entry-type>java.lang.String</env-entry-type>
-  <env-entry-value>localhost</env-entry-value>
+  <env-entry-value>mysql.info.unicaen.fr</env-entry-value>
 </env-entry>
 
 <env-entry>
   <env-entry-name>database</env-entry-name>
   <env-entry-type>java.lang.String</env-entry-type>
-  <env-entry-value>tpfilrouge</env-entry-value>
+  <env-entry-value>21201323_7</env-entry-value>
 </env-entry>
 
 <env-entry>
   <env-entry-name>username</env-entry-name>
   <env-entry-type>java.lang.String</env-entry-type>
-  <env-entry-value>root</env-entry-value>
+  <env-entry-value>21201323</env-entry-value>
 </env-entry>
 
 <env-entry>
   <env-entry-name>password</env-entry-name>
   <env-entry-type>java.lang.String</env-entry-type>
-  <env-entry-value>PASSWORD</env-entry-value>
+  <env-entry-value>kipheepahtaishod</env-entry-value>
 </env-entry>
 
 

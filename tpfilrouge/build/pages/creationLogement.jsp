@@ -10,7 +10,7 @@
 
 <h1>Creation de logement</h1>
 
-<form method="post" action="add">
+<form method="post" action="ajouter">
 	<p>
 		<label>Type : </label>
 		<select name="logement">

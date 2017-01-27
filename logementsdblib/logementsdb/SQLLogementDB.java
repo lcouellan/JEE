@@ -70,6 +70,7 @@ public class SQLLogementDB implements ILogementDB {
         query+="`surface` DOUBLE NOT NULL, ";
         query+="`nbPieces` INT NOT NULL, ";
         query+="`adresse` VARCHAR(255) NOT NULL, ";
+	query+="`surfaceExterieur` DOUBLE NOT NULL, ";
         query+="PRIMARY KEY (`adresse`) ";
         query+=")";
         Statement statement=this.link.createStatement();
@@ -82,6 +83,7 @@ public class SQLLogementDB implements ILogementDB {
      * @throws SQLException if a database access error occurs
      */
     public void create (Logement logement) throws SQLException {
+	this.createTables();
         this.createLogementStatement.setDouble(1,logement.getSurface());
         this.createLogementStatement.setInt(2,logement.getNbPieces());
         this.createLogementStatement.setString(3,logement.getAdresse());
