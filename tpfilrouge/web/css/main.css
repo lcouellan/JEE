@@ -1,5 +1,7 @@
 body {
   padding-top: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .contenu {
@@ -40,4 +42,8 @@ body {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+.form-group {
+  margin: 10px !important;
 }
