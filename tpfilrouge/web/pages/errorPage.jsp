@@ -5,7 +5,7 @@
 <c:set var="path" value="<%= request.getContextPath() %>" />
 <c:set var="cssPath" scope="request" value="<%= request.getContextPath()+"/" %>" />
 
-<jsp:include page="../fragments/header.jsp" />
+<jsp:include page="../fragments/header.html" />
 
 <h1>Erreur</h1>
 <p>

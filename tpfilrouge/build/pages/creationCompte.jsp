@@ -6,15 +6,30 @@
   Product funny=db.getFunnyProduct();
 %>--%>
 
-<jsp:include page="../fragments/header.jsp" />
+<jsp:include page="../fragments/header.html" />
 
 <h1>Creation de compte</h1>
 
 <form class="form-signin" method="post" action="success">
-   	<p><label>Votre prenom : </label><input type="text" name="prenom" /></p>
-   	<p><label>Votre nom : </label><input type="text" name="nom" /></p>
-   	<p><label>Votre email : </label><input type="text" name="email" /></p>
-	<p><input type="submit" value="Valider" /></p>
+   	<div class="form-group">
+   		<label class=".control-label">Votre prenom : </label>
+   		<div>
+	   		<input type="text" name="prenom" />
+	   	</div>
+   	</div>
+   	<div class="form-group">
+   		<label class=".control-label">Votre nom : </label>
+   		<div>
+	   		<input type="text" name="nom" />
+	   	</div>
+   	</div>
+   	<div class="form-group">
+   		<label class=".control-label">Votre email : </label>
+   		<div>
+	   		<input type="text" name="email" />
+	   	</div>
+   	</div>
+	<input class="btn btn-success btn-lg btn-block" type="submit" value="Valider" />
 </form>
 
 <jsp:include page="../fragments/footer.html" />
