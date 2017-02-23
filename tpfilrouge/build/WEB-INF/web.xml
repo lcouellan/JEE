@@ -55,7 +55,7 @@
 </servlet>
 <servlet>
   <servlet-name>ajouterCompte</servlet-name>
-  <servlet-class>jdbcpersons.AddPersonServlet</servlet-class>
+  <servlet-class>jdbclogements.AddPersonServlet</servlet-class>
 </servlet>
 
 

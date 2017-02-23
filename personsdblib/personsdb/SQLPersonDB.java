@@ -85,6 +85,7 @@ public class SQLPersonDB {
      * @throws SQLException if a database access error occurs
      */
     public void create (Person person) throws SQLException {
+        this.createTables();
         this.createPersonStatement.setString(1,person.getEmail());
         this.createPersonStatement.setString(2,person.getFirstName());
         this.createPersonStatement.setString(3,person.getName());

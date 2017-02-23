@@ -14,13 +14,13 @@
    	<div class="form-group">
    		<label class=".control-label">Votre prenom : </label>
    		<div>
-	   		<input type="text" name="prenom" />
+	   		<input type="text" name="firstName" />
 	   	</div>
    	</div>
    	<div class="form-group">
    		<label class=".control-label">Votre nom : </label>
    		<div>
-	   		<input type="text" name="nom" />
+	   		<input type="text" name="name" />
 	   	</div>
    	</div>
    	<div class="form-group">
