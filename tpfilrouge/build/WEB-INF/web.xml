@@ -24,14 +24,18 @@
   <error-code>404</error-code>
   <location>/pages/errorPage.jsp</location>
 </error-page>
+
 <servlet>
   <servlet-name>CreationCompte</servlet-name>
   <jsp-file>/pages/creationCompte.jsp</jsp-file>
 </servlet>
+
+
 <servlet>
   <servlet-name>ListeLogements</servlet-name>
   <jsp-file>/pages/listeLogements.jsp</jsp-file>
 </servlet>
+
 <servlet>
   <servlet-name>creationAppartement</servlet-name>
   <jsp-file>/pages/creationAppartement.jsp</jsp-file>
@@ -40,6 +44,7 @@
   <servlet-name>creationMaison</servlet-name>
   <jsp-file>/pages/creationMaison.jsp</jsp-file>
 </servlet>
+
 <servlet>
   <servlet-name>ajouterAppartement</servlet-name>
   <servlet-class>jdbclogements.AddAppartementServlet</servlet-class>
@@ -48,11 +53,22 @@
   <servlet-name>ajouterMaison</servlet-name>
   <servlet-class>jdbclogements.AddMaisonServlet</servlet-class>
 </servlet>
+<servlet>
+  <servlet-name>ajouterCompte</servlet-name>
+  <servlet-class>jdbcpersons.AddPersonServlet</servlet-class>
+</servlet>
+
 
 <servlet-mapping>
   <servlet-name>CreationCompte</servlet-name>
   <url-pattern>/compte/creer</url-pattern>
 </servlet-mapping>
+
+<servlet-mapping>
+  <servlet-name>ListeLogements</servlet-name>
+  <url-pattern>/logements</url-pattern>
+</servlet-mapping>
+
 <servlet-mapping>
   <servlet-name>creationAppartement</servlet-name>
   <url-pattern>/appartement/creer</url-pattern>
@@ -61,10 +77,7 @@
   <servlet-name>creationMaison</servlet-name>
   <url-pattern>/maison/creer</url-pattern>
 </servlet-mapping>
-<servlet-mapping>
-  <servlet-name>ListeLogements</servlet-name>
-  <url-pattern>/logements</url-pattern>
-</servlet-mapping>
+
 <servlet-mapping>
   <servlet-name>ajouterAppartement</servlet-name>
   <url-pattern>/appartement/ajouter</url-pattern>
@@ -73,7 +86,10 @@
   <servlet-name>ajouterMaison</servlet-name>
   <url-pattern>/maison/ajouter</url-pattern>
 </servlet-mapping>
-
+<servlet-mapping>
+  <servlet-name>ajouterCompte</servlet-name>
+  <url-pattern>/compte/ajouter</url-pattern>
+</servlet-mapping>
 
 
 <env-entry>
@@ -105,6 +121,11 @@
   <env-entry-name>table</env-entry-name>
   <env-entry-type>java.lang.String</env-entry-type>
   <env-entry-value>logements</env-entry-value>
+</env-entry>
+<env-entry>
+  <env-entry-name>tablePerson</env-entry-name>
+  <env-entry-type>java.lang.String</env-entry-type>
+  <env-entry-value>persons</env-entry-value>
 </env-entry>
 
 </web-app>

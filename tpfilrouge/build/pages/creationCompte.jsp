@@ -10,7 +10,7 @@
 
 <h1>Creation de compte</h1>
 
-<form class="form-signin" method="post" action="success">
+<form class="form-signin" method="post" action="ajouter">
    	<div class="form-group">
    		<label class=".control-label">Votre prenom : </label>
    		<div>

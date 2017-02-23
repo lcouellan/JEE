@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
 <project name="Persons Library" default="dist">
 
-<target name="compile" depends="init">				
-  <javac srcdir="." destdir="build" includeantruntime="false">
+<target name="compile" depends="init">        
+  <javac srcdir="." destdir="build" includeantruntime="false" encoding="UTF-8">
     <include name="persons/**/*.java" />
   </javac>
 </target>
@@ -22,7 +22,7 @@
 </target>
 
 <target name="test" depends="compiletests">
-  <java fork="yes" classname="tests.TestPersonDBStub" classpath="build">
+  <java fork="yes" classname="tests.TestLogementDBStub" classpath="build">
     <jvmarg value="-ea" />
   </java>
 </target>

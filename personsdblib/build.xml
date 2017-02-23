@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<project name="PersonsDB library" default="dist">
+
+<target name="compile" depends="init">
+  <javac srcdir="." destdir="build" classpath="lib/persons.jar" includeantruntime="false">
+    <include name="personsdb/**/*.java" />
+  </javac>
+</target>
+
+<target name="doc" depends="init,compile">
+  <javadoc packagenames="personsdb" sourcepath="." destdir="doc" classpath="lib/persons.jar" />
+</target>
+
+
+<target name="dist" depends="compile">
+  <jar basedir="build" excludes="tests/**" destfile="dist/personsdb.jar" />
+</target>
+
+<target name="init">
+  <mkdir dir="build" />
+  <mkdir dir="dist" />
+  <mkdir dir="doc" />
+</target>
+
+<target name="clear">
+  <antcall target="clean" />
+  <delete dir="build" />
+  <delete dir="dist" />
+  <delete dir="doc" />
+</target>
+
+<target name="clean">
+  <delete verbose="true">
+    <fileset dir="." includes="**/*~"  defaultexcludes="no" />
+  </delete>
+</target>
+
+</project>
